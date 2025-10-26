@@ -1,13 +1,13 @@
 // src/config/database.ts
 import { Sequelize } from "sequelize-typescript";
 import { Country } from "../models/Country";
+import dotenv from "dotenv";
+dotenv.config();
 
-export const sequelize = new Sequelize({
+
+
+export const sequelize = new Sequelize(process.env.DB_URL!, {
   dialect: "mysql",
-  host: "localhost",
-  username: "root",
-  password: "password",
-  database: "ecommerce_db",
+  logging: false,
   models: [Country],
-  logging: true,
 });
