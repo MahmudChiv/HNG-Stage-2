@@ -14,8 +14,8 @@ import {
 export class Country extends Model {
   @PrimaryKey
   @Column({
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4,
+    type: DataType.INTEGER,
+    autoIncrement: true
   })
   declare id?: string;
 

@@ -13,8 +13,8 @@ export async function generateSummaryImg() {
     });
 
     //Generating Summary Image
-    const width = 600;
-    const height = 400;
+    const width = 1000;
+    const height = 500;
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
 

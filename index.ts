@@ -12,7 +12,7 @@ app.use("/api", myRoutes)
 
 app.get("/", (req, res) => res.send("API is running..."));
 
-sequelize.sync({alter: true}).then(() => {
+sequelize.sync().then(() => {
   console.log("✅ Database synced");
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
