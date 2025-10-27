@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use("/api", myRoutes)
+app.use("/", myRoutes)
 
 app.get("/", (req, res) => res.send("API is running..."));
 
