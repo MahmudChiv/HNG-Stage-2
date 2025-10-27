@@ -15,12 +15,13 @@ export class Country extends Model {
   @PrimaryKey
   @Column({
     type: DataType.UUID,
-    defaultValue: DataType.UUID,
+    defaultValue: DataType.UUIDV4,
   })
   declare id?: string;
 
   @Column({
     type: DataType.STRING,
+    unique: true,
     allowNull: false,
   })
   declare name: string;
@@ -45,19 +46,19 @@ export class Country extends Model {
 
   @Column({
     type: DataType.STRING,
-    allowNull: false,
+    allowNull: true,
   })
   declare currency_code: string;
 
   @Column({
     type: DataType.INTEGER,
-    allowNull: false,
+    allowNull: true,
   })
   declare exchange_rate: number;
 
   @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
+    type: DataType.DECIMAL(20, 2),
+    allowNull: true,
   })
   declare estimated_gdp: number;
 

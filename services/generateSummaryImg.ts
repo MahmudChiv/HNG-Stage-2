@@ -3,7 +3,7 @@ import { createCanvas } from "canvas";
 import fs from "fs";
 import path from "path";
 
-export function generateSummaryImg() {
+export async function generateSummaryImg() {
   try {
     //Generating Summary Data
     const totalCountries = await Country.count();
@@ -35,15 +35,15 @@ export function generateSummaryImg() {
     ctx.fillText("Top 5 by GDP:", 20, 120);
     topCountries.forEach((c, i) => {
         ctx.fillText(
-        `${i + 1}. ${c.name} - ${c.gdp.toLocaleString()}`,
-        40,
-        150 + i * 30
+          `${i + 1}. ${c.name} - ${c.estimated_gdp.toLocaleString()}`,
+          40,
+          150 + i * 30
         );
     });
 
     // Timestamp
     const lastRefreshedAt = topCountries[0]?.last_refreshed_at;
-    ctx.fillText(`Last refreshed: ${timestamp}`, 20, 330);
+    ctx.fillText(`Last refreshed: ${lastRefreshedAt}`, 20, 330);
 
     const outputPath = path.join(__dirname, "../cache/summary.png");
     const buffer = canvas.toBuffer("image/png");
