@@ -9,7 +9,7 @@ import {
 
 @Table({
   tableName: "countries",
-  timestamps: true,
+  timestamps: false,
 })
 export class Country extends Model {
   @PrimaryKey
