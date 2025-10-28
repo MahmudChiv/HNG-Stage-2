@@ -103,7 +103,7 @@ export const getSummaryImage = async (req: Request, res: Response) => {
     if (!fs.existsSync(imagePath))
       return res.status(404).json({ error: "Summary image not found" });
 
-    return res.sendFile(imagePath);
+    return res.type('png').sendFile(imagePath);
   } catch (error) {
     return res.status(500).json({ error: "Internal Server Error" });
   }
